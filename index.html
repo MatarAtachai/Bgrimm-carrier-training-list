@@ -60,6 +60,8 @@
         const MapPin = (props) => <Icon {...props}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></Icon>;
         const Phone = (props) => <Icon {...props}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></Icon>;
         const Users = (props) => <Icon {...props}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></Icon>;
+        const Clock = (props) => <Icon {...props}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></Icon>;
+        const AlertCircle = (props) => <Icon {...props}><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></Icon>;
 
         // --- Utils ---
         const formatPhoneNumber = (phone) => {
@@ -379,7 +381,6 @@
                                     </div>
                                     <div>
                                         <h1 className="text-xl font-bold text-gray-900">ประกาศรายชื่อผู้เข้าร่วม อบรมผลิตภัณฑ์แอร์แคเรียร์ 2569</h1>
-                                        <p className="text-sm text-gray-500">Carrier Smart Service Center</p>
                                     </div>
                                 </div>
                                 {/* Removed participant count as requested */}
@@ -388,6 +389,40 @@
                     </header>
 
                     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        {/* Notifications */}
+                        <div className="grid gap-4 md:grid-cols-2 mb-6">
+                            {/* Schedule Notice */}
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg shadow-sm">
+                                <div className="flex">
+                                    <div className="flex-shrink-0">
+                                        <Clock className="h-5 w-5 text-blue-500" />
+                                    </div>
+                                    <div className="ml-3">
+                                        <h3 className="text-sm font-bold text-blue-800">กำหนดการ</h3>
+                                        <div className="mt-1 text-sm text-blue-700">
+                                            <p>ขอเชิญเข้าร่วมงานตามกำหนดการตั้งแต่เวลา 08:30 น. ถึง 16:00 น. โดยจะเริ่มเปิดให้ลงทะเบียนเข้างานได้ตั้งแต่เวลา 08:30 น. เป็นต้นไป</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Cancellation Notice */}
+                            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg shadow-sm">
+                                <div className="flex">
+                                    <div className="flex-shrink-0">
+                                        <AlertCircle className="h-5 w-5 text-yellow-500" />
+                                    </div>
+                                    <div className="ml-3">
+                                        <h3 className="text-sm font-bold text-yellow-800">แจ้งเพื่อทราบ</h3>
+                                        <div className="mt-1 text-sm text-yellow-700">
+                                            <p>หากท่านไม่สะดวกเดินทางมา กรุณาแจ้งยกเลิกภายในวันที่ 10 ม.ค. 69 เพื่อเปิดโอกาสให้ลูกค้าท่านอื่น</p>
+                                            <p className="mt-1 font-semibold text-yellow-800">*ขออนุญาตสงวนสิทธิ์การจองครั้งถัดไป สำหรับท่านที่ไม่ได้แจ้งยกเลิกตามกำหนดครับ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Filters */}
                         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6 sticky top-[80px] z-10">
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
